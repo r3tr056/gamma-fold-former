@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gammafold"
+version = "0.1.0"
+description = "Protein Sequence and Structure Modeling Framework"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "GammaFold Team"}
+]
+keywords = ["protein", "structure prediction", "transformer", "deep learning"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.21.0",
+    "requests>=2.25.0",
+    "tqdm>=4.60.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+training = [
+    "tensorboard>=2.10.0",
+    "wandb>=0.13.0",
+]
+
+[project.scripts]
+gammafold = "gammafold.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gammafold/gammafold"
+Documentation = "https://gammafold.readthedocs.io"
+Repository = "https://github.com/gammafold/gammafold"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gammafold*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311", "py312"]

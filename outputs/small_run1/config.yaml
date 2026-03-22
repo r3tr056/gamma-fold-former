@@ -1,0 +1,50 @@
+bf16: false
+data:
+  batch_size: 8
+  max_seq_len: 512
+  min_seq_len: 10
+  num_workers: 4
+  pin_memory: true
+  prefetch_factor: 2
+  test_data: null
+  train_data: /home/retro/Projects/gamma-fold/data/splits/train.fasta
+  val_data: data/val
+distance_loss_weight: 0.1
+distributed: false
+eval_steps: 1000
+log_steps: 100
+logging_dir: null
+max_epochs: null
+max_steps: 1000
+mixed_precision: true
+mlm_loss_weight: 1.0
+model:
+  dropout: null
+  embed_dim: null
+  model_size: small
+  model_type: original
+  num_heads: null
+  num_layers: null
+optimizer:
+  betas: !!python/tuple
+  - 0.9
+  - 0.999
+  eps: 1.0e-08
+  gradient_accumulation_steps: 1
+  gradient_clip: 1.0
+  learning_rate: 0.0001
+  optimizer: adamw
+  weight_decay: 0.01
+output_dir: outputs/small_run1
+resume_from: null
+save_steps: 5000
+save_total_limit: 3
+scheduler:
+  min_lr_ratio: 0.1
+  scheduler: cosine
+  warmup_ratio: 0.0
+  warmup_steps: 1000
+seed: 42
+structure_loss_weight: 1.0
+use_wandb: false
+wandb_project: gammafold
